@@ -111,3 +111,4 @@ vendored-tongsuo = ["openssl/tongsuo", "openssl-probe", "g3-yaml/tongsuo", "g3-j
 vendored-aws-lc = ["openssl/aws-lc", "openssl-probe", "g3-types/aws-lc", "g3-tls-cert/aws-lc", "g3-openssl/aws-lc"]
 vendored-boringssl = ["openssl/boringssl", "openssl-probe", "g3-types/boringssl", "g3-tls-cert/boringssl", "g3-openssl/boringssl"]
 vendored-c-ares = ["c-ares", "g3-resolver/vendored-c-ares"]
+rustls-ring = ["rustls/ring", "g3-types/rustls-ring"]

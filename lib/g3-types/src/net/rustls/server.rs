@@ -18,6 +18,9 @@ use std::sync::Arc;
 use std::time::Duration;
 
 use anyhow::{anyhow, Context};
+#[cfg(not(feature = "rustls-ring"))]
+use rustls::crypto::aws_lc_rs::Ticketer;
+#[cfg(feature = "rustls-ring")]
 use rustls::crypto::ring::Ticketer;
 use rustls::server::WebPkiClientVerifier;
 use rustls::{RootCertStore, ServerConfig};

@@ -197,6 +197,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 
 [[package]]
+name = "aws-lc-rs"
+version = "1.6.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "df33e4a55b03f8780ba55041bc7be91a2a8ec8c03517b0379d2d6c96d2c30d95"
+dependencies = [
+ "aws-lc-sys",
+ "mirai-annotations",
+ "paste",
+ "zeroize",
+]
+
+[[package]]
 name = "aws-lc-sys"
 version = "0.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1194,7 +1206,7 @@ dependencies = [
  "ip_network",
  "rand",
  "regex",
- "rustls-pemfile 2.0.0",
+ "rustls-pemfile 2.1.1",
  "rustls-pki-types",
  "serde_json",
  "variant-ssl",
@@ -1209,8 +1221,8 @@ dependencies = [
  "chrono",
  "g3-types",
  "rmpv",
- "rustls 0.22.2",
- "rustls-pemfile 2.0.0",
+ "rustls 0.23.1",
+ "rustls-pemfile 2.1.1",
  "rustls-pki-types",
  "uuid",
  "variant-ssl",
@@ -1398,9 +1410,9 @@ dependencies = [
  "rand",
  "regex",
  "rustc-hash",
- "rustls 0.22.2",
+ "rustls 0.23.1",
  "rustls-native-certs 0.7.0",
- "rustls-pemfile 2.0.0",
+ "rustls-pemfile 2.1.1",
  "rustls-pki-types",
  "serde_json",
  "sha-1",
@@ -1462,7 +1474,7 @@ dependencies = [
  "ip_network",
  "rand",
  "regex",
- "rustls-pemfile 2.0.0",
+ "rustls-pemfile 2.1.1",
  "rustls-pki-types",
  "url",
  "variant-ssl",
@@ -1508,8 +1520,8 @@ dependencies = [
  "quinn",
  "rustc-hash",
  "rustc_version",
- "rustls 0.22.2",
- "rustls-pemfile 2.0.0",
+ "rustls 0.23.1",
+ "rustls-pemfile 2.1.1",
  "rustls-pki-types",
  "thiserror",
  "tokio",
@@ -1699,7 +1711,7 @@ dependencies = [
  "rmpv",
  "rustc-hash",
  "rustc_version",
- "rustls 0.22.2",
+ "rustls 0.23.1",
  "serde_json",
  "slog",
  "thiserror",
@@ -1810,7 +1822,7 @@ dependencies = [
  "quinn",
  "rand",
  "rustc_version",
- "rustls 0.22.2",
+ "rustls 0.23.1",
  "rustls-pki-types",
  "serde_json",
  "slog",
@@ -2460,6 +2472,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "mirai-annotations"
+version = "1.12.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c9be0862c1b3f26a88803c4a49de6889c10e608b3ee9344e6ef5b45fb37ad3d1"
+
+[[package]]
 name = "mlua"
 version = "0.9.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3033,11 +3051,13 @@ dependencies = [
 
 [[package]]
 name = "rustls"
-version = "0.22.2"
+version = "0.23.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e87c9956bd9807afa1f77e0f7594af32566e830e088a5576d27c5b6f30f49d41"
+checksum = "e153fc89608e0515660ca656fd7f2fa05ca6690f3fd6ad1b0a46e24a8130d838"
 dependencies = [
+ "aws-lc-rs",
  "log",
+ "once_cell",
  "ring",
  "rustls-pki-types",
  "rustls-webpki 0.102.2",
@@ -3064,7 +3084,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8f1fb85efa936c42c6d5fc28d2629bb51e4b2f4b8a5211e297d599cc5a093792"
 dependencies = [
  "openssl-probe",
- "rustls-pemfile 2.0.0",
+ "rustls-pemfile 2.1.1",
  "rustls-pki-types",
  "schannel",
  "security-framework",
@@ -3081,19 +3101,19 @@ dependencies = [
 
 [[package]]
 name = "rustls-pemfile"
-version = "2.0.0"
+version = "2.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "35e4980fa29e4c4b212ffb3db068a564cbf560e51d3944b7c88bd8bf5bec64f4"
+checksum = "f48172685e6ff52a556baa527774f61fcaa884f59daf3375c62a3f1cd2549dab"
 dependencies = [
- "base64",
+ "base64 0.21.7",
  "rustls-pki-types",
 ]
 
 [[package]]
 name = "rustls-pki-types"
-version = "1.2.0"
+version = "1.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0a716eb65e3158e90e17cd93d855216e27bde02745ab842f2cab4a39dba1bacf"
+checksum = "5ede67b28608b4c60685c7d54122d4400d90f62b40caee7700e700380a390fa8"
 
 [[package]]
 name = "rustls-webpki"
@@ -3111,6 +3131,7 @@ version = "0.102.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "faaa0a62740bedb9b2ef5afa303da42764c012f743917351dc9a237ea1663610"
 dependencies = [
+ "aws-lc-rs",
  "ring",
  "rustls-pki-types",
  "untrusted",
@@ -3497,10 +3518,9 @@ dependencies = [
 [[package]]
 name = "tokio-rustls"
 version = "0.25.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "775e0c0f0adb3a2f22a00c4745d728b479985fc15ee7ca6a2608388c5569860f"
+source = "git+https://github.com/rustls/tokio-rustls.git?branch=jbp-rustls-0.23#b3a2b143239d66253ba09f8ac4bfc4b7ab00cfac"
 dependencies = [
- "rustls 0.22.2",
+ "rustls 0.23.1",
  "rustls-pki-types",
  "tokio",
 ]
